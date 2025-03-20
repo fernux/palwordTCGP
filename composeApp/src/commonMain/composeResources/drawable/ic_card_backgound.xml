@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/> <!-- D3D3D3 Cambia a cualquier tono de gris que prefieras -->
+    <corners android:radius="8dp"/> <!-- Opcional: redondea las esquinas -->
+    <size android:width="200dp" android:height="100dp"/> <!-- Opcional: tamaño fijo -->
+</shape>
