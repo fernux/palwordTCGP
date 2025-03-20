@@ -22,7 +22,8 @@ fun NavigationWrapper(){
         composable<CardDetail> {
             val cardDetailEncoding = it.toRoute<CardDetail>()
             val cardModel = Json.decodeFromString<CardModel>(cardDetailEncoding.cardModel)
-            CardDetailScreen(cardModel)
+            CardDetailScreen( cardModel = cardModel,
+                    onBackPressed = { mainNavController.popBackStack() })
         }
     }
 }

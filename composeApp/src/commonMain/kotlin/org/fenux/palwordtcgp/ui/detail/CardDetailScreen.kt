@@ -16,7 +16,7 @@ import org.koin.core.parameter.parameterSetOf
 
 @OptIn(KoinExperimentalAPI::class)
 @Composable
-fun CardDetailScreen(cardModel: CardModel) {
+fun CardDetailScreen(cardModel: CardModel, onBackPressed: () -> Unit) {
 
     val cardDetailViewModel =
         koinViewModel<CardDetailViewModel>(parameters = { parameterSetOf(cardModel) })
@@ -24,7 +24,7 @@ fun CardDetailScreen(cardModel: CardModel) {
     val state by cardDetailViewModel.uiState.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize().background(Color.Blue)){
-        MainHeader(state.cardModel)
+        MainHeader(state.cardModel, onBackPressed)
     }
 
 }

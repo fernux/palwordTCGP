@@ -28,7 +28,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.MailOutline
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -69,7 +68,7 @@ import palwordtcgp.composeapp.generated.resources.ic_card
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainHeader(cardModel: CardModel) {
+fun MainHeader(cardModel: CardModel, onBackPressed: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -82,7 +81,7 @@ fun MainHeader(cardModel: CardModel) {
                     actionIconContentColor = Color.Transparent,
                 ),
                 actions = {
-                    BottomsBarHedear()
+                    BottomsBarHedear(onBackPressed)
                 }
 
             )
@@ -111,7 +110,7 @@ fun MainHeader(cardModel: CardModel) {
 }
 
 @Composable
-fun BottomsBarHedear() {
+fun BottomsBarHedear(onBackPressed: () -> Unit) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -119,7 +118,7 @@ fun BottomsBarHedear() {
             .padding(start = 16.dp)
     ) {
         Button(
-            onClick = { /* Acción del botón */ },
+            onClick = { onBackPressed() },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White, // Fondo blanco
                 contentColor = Color.Black // Texto negro
@@ -145,7 +144,7 @@ fun BottomsBarHedear() {
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-            onClick = { /* Acción del botón */ },
+            onClick = { onBackPressed() },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White, // Fondo blanco
                 contentColor = Color.Black // Texto negro
@@ -169,7 +168,7 @@ fun BottomsBarHedear() {
         }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-            onClick = {},
+            onClick = {onBackPressed()},
             modifier = Modifier.width(60.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent, // Fondo blanco
@@ -179,7 +178,7 @@ fun BottomsBarHedear() {
             Text(text = "...", textAlign = TextAlign.Right)
         }
         Button(
-            onClick = {},
+            onClick = {onBackPressed()},
             modifier = Modifier.width(60.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.Transparent, // Fondo blanco
